@@ -1,4 +1,4 @@
-//import ContentstackLivePreview from "@contentstack/live-preview-utils";
+import ContentstackLivePreview from "@contentstack/live-preview-utils";
 import Contentstack from "contentstack";
 Contentstack.Utils.addEditableTags();
 
@@ -14,14 +14,14 @@ const Stack = Contentstack.Stack({
   region: process.env.CONTENTSTACK_REGION == 'NA' ? Contentstack.Region.NA : Contentstack.Region.EU
 });
 
-// ContentstackLivePreview.init({
-//   stackSdk: Stack,
-//   clientUrlParams: {
-//     protocol: "https",
-//     host: process.env.CONTENTSTACK_REGION == 'NA' ? "app.contentstack.com" : "eu-app.contentstack.com",
-//     port: 443,
-//   },
-// });
+ContentstackLivePreview.init({
+  stackSdk: Stack,
+  clientUrlParams: {
+    protocol: "https",
+    host: process.env.CONTENTSTACK_REGION == 'NA' ? "app.contentstack.com" : "eu-app.contentstack.com",
+    port: 443,
+  },
+});
 
 export default {
   getElement(id, type, locale) {
@@ -200,4 +200,4 @@ export default {
   },
 };
 
-//export const onEntryChange = ContentstackLivePreview.onEntryChange;
+export const onEntryChange = ContentstackLivePreview.onEntryChange;

@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+h4 {
+    font-weight: 700;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+#productInsideLeft p, td, li {
+    font-size: 14px;
+}
+
+#productInsideRight p, td, li {
+    font-size: 14px;
+}
