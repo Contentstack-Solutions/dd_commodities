@@ -8,6 +8,8 @@ import TextAndImage from "@/components/textAndImage";
 import Marquee from "@/components/marquee";
 import ProductCarousel from "@/components/productCarousel";
 import Footer from "@/components/footer";
+import dynamic from 'next/dynamic';
+const LivePreviewInit = dynamic( () => import("@/components/LivePreviewInit").then((mod) => mod.default), { ssr: false } );
 
 export default function Home() {
     const [entry, setEntry] = useState({});
@@ -17,8 +19,7 @@ export default function Home() {
         const entry = await Stack.getElementByTypeWtihRefs(
             "homepage",
             "en-us",
-            [
-            ]
+            []
         );
         console.log('homepage', entry[0][0]);
         setEntry(entry[0][0]);
@@ -26,7 +27,8 @@ export default function Home() {
     };
 
     useEffect(() => {
-        onEntryChange(getContent);
+        getContent();
+        //onEntryChange(getContent);
     }, []);
 
     if (isLoading) return;
